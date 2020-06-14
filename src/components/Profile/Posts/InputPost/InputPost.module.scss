@@ -1,0 +1,13 @@
+.inputPost__container {
+    display: flex;
+  
+    & input {
+        margin: 0 1rem 2rem 0;
+        padding: .6rem .4rem;
+        width: 60%;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #000;
+        outline: none;
+    }
+  }

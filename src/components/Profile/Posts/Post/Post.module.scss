@@ -1,0 +1,9 @@
+.post__container {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+  
+    & img {
+        margin-right: .6rem;
+    }
+}
