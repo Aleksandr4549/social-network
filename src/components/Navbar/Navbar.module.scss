@@ -1,0 +1,14 @@
+.navbar__container {
+    & a {
+        display: inline-block;
+        width: 100%;
+        padding: 1rem .25rem;
+        transition: .2s all linear;
+        color: #333;
+        text-decoration: none;
+  
+        &:hover {
+            background-color: lighten(#355C7D, 50%);
+        }
+    }
+  }
