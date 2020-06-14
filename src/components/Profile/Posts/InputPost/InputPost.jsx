@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SendButton from '../../Buttons/Send';
+import SendButton from '../../../Buttons/Send/Send';
 import style from './InputPost.module.scss';
 
 const InputPost = ({ value = 'new post', onChangeHandler, addPostHandler }) => {
     return (
         <div className={style.inputPost__container}>
             <input
-                ref={r}
                 type="text"
                 value={value}
                 onChange={onChangeHandler}

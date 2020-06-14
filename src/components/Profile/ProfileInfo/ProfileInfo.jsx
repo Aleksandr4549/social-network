@@ -11,7 +11,7 @@ const ProfileInfo = ({city = 'default', date = '01.01.1970', gender = 'male'}) =
   );
 };
 
-Info.propTypes = {
+ProfileInfo.propTypes = {
     city: PropTypes.string,
     date: PropTypes.string,
     gender: PropTypes.string,

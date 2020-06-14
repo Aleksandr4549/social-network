@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import avatar_template from '../../accets/img/avatar_template.png';
+import avatar_template from '../../assets/images/avatar_template.png';
 import style from './Avatar.module.scss';
 
 const Avatar = ({ avatarSize }) => {

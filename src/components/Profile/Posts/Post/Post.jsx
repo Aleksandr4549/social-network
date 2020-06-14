@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Avatar from '../../Avatar/Avatar';
+import Avatar from '../../../Avatar/Avatar';
 import style from './Post.module.scss';
 
 const Post = ({ text = 'text post' }) => {
