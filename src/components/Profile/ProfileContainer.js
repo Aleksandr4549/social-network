@@ -2,13 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Profile from './Profile';
-import { onChangePost } from '../../redux/reducers/Profile-reducer';
+import { onChangePost, addPost } from '../../redux/reducers/Profile-reducer';
 
 const ProfileContainer = props => {
     return (
         <Profile 
+            posts={props.profile.posts}
             inputValue={props.profile.inputCurrentValue} 
             onChangeHandler={props.onChangePost} 
+            addPostHandler={props.addPost}
         />
     );
 };
@@ -19,4 +21,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {onChangePost})(ProfileContainer)
+export default connect(mapStateToProps, {onChangePost, addPost})(ProfileContainer)
