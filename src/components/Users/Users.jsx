@@ -4,7 +4,7 @@ import Avatar from '../Avatar/Avatar';
 import ToggleFollowBtn from '../Buttons/Follow/ToggleFollowBtn';
 import style from './Users.module.scss';
 
-const Users = ({users}) => {
+const Users = ({users, onClickHandler}) => {
     return (
         <div>
             {users.map(user => (
@@ -17,7 +17,11 @@ const Users = ({users}) => {
                             <span>{user.city}</span>
                         </div>
                         <div>{user.status}</div>
-                        <ToggleFollowBtn text={user.isFollow ? 'unfollow' : 'follow'} />
+                        <ToggleFollowBtn 
+                            text={user.isFollow ? 'unfollow' : 'follow'}
+                            onClickHandler={onClickHandler} 
+                            id={user.id}
+                        />
                     </div>
                 </div>
             ))}

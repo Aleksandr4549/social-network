@@ -6,7 +6,7 @@ import { setUsers, toggleFollow } from '../../redux/reducers/users-reducer';
 
 const UsersContainer = (props) => {
     return (
-        <Users users={props.usersPage.users}/>
+        <Users users={props.usersPage.users} onClickHandler={props.toggleFollow} />
     );
 };
 
