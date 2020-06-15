@@ -1,10 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
-import ProfileReducer from './reducers/Profile-reducer';
+import profileReducer from './reducers/profile-reducer';
+import usersReducer from './reducers/users-reducer';
 
 const rootReducer = combineReducers({
-    profile: ProfileReducer
+    profile: profileReducer,
+    usersPage: usersReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

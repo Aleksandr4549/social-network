@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Profile from './Profile';
-import { onChangePost, addPost } from '../../redux/reducers/Profile-reducer';
+import { onChangePost, addPost } from '../../redux/reducers/profile-reducer';
 
 const ProfileContainer = props => {
     return (

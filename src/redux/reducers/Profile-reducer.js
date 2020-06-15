@@ -6,7 +6,7 @@ const initialState = {
     inputCurrentValue: ''
 }
 
-const ProfileReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action) => {
     switch(action.type) {
         case ON_CHANGE_POST:
             return {...state, inputCurrentValue: action.payload}
@@ -33,4 +33,4 @@ export const addPost = () => {
     }
 };
 
-export default ProfileReducer;
+export default profileReducer;

@@ -5,7 +5,7 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Messages from './components/Messages/Messages';
 import ProfileContainer from './components/Profile/ProfileContainer';
-import Users from './components/Users/Users';
+import UsersContainer from './components/Users/UsersContainer';
 import style from './App.module.scss';
 
 function App() {
@@ -13,9 +13,9 @@ function App() {
         <div className={style.app}>
             <Header />
             <Navbar />
-            <Route exact path={'/'} component={() => <ProfileContainer />} />
-            <Route exact path={'/Messages'} component={() => <Messages />} />
-            <Route exact path={'/Users'} component={() => <Users />} />
+            <Route exact path={'/'} render={() => <ProfileContainer />} />
+            <Route exact path={'/Messages'} render={() => <Messages />} />
+            <Route exact path={'/Users'} render={() => <UsersContainer />} />
         </div>
     );
 }
