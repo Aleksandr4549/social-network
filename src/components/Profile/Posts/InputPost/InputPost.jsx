@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import SendButton from '../../../Buttons/Send/Send';
 import style from './InputPost.module.scss';
 
-const InputPost = ({ value = 'new post', onChangeHandler, addPostHandler }) => {
+const InputPost = ({ value, onChangeHandler, addPostHandler }) => {
     return (
         <div className={style.inputPost__container}>
             <input
                 type="text"
                 value={value}
-                onChange={onChangeHandler}
+                onChange={(e) => onChangeHandler(e.target.value)}
             />
             <SendButton onClickHandler={addPostHandler} />
         </div>

@@ -5,14 +5,14 @@ import Posts from './Posts/Posts';
 import Avatar from '../Avatar/Avatar';
 import style from './Profile.module.scss';
 
-const Profile = () => {
+const Profile = ({inputValue, onChangeHandler}) => {
     return (
         <div className={style.profile__container}>
             <div className={style.page__info}>
                 <Avatar avatarSize='large' />
                 <ProfileInfo />
             </div>
-            <Posts />
+            <Posts inputValue={inputValue} onChangeHandler={onChangeHandler} />
         </div>
     );
 };
