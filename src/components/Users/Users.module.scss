@@ -1,0 +1,15 @@
+.user__container {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.user__info {
+    margin-left: 1rem;
+}
+
+.location {
+    & span {
+        margin-right: .5rem;
+    } 
+} 

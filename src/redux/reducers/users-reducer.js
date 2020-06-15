@@ -3,13 +3,23 @@ const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW';
 
 const initialState = {
     users: [{
-    id: 0,
-    name: 'Name', 
-    country: 'Russia',
-    city: 'Moscow',
-    isFollow: false,
-    status: ''
-    }
+        id: 0,
+        name: 'John', 
+        country: 'Russia',
+        city: 'Moscow',
+        status: 'haha',
+        isFollow: false,
+        avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQteJqiwRZ7HbDPSiQ48m9DqxWrSkRkj0YQRwkWbxkKUcYwmWOh&usqp=CAU'
+    },
+    {
+        id: 1,
+        name: 'Bill', 
+        country: 'Russia',
+        city: 'Moscow',
+        status: '',
+        isFollow: false,
+        avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQteJqiwRZ7HbDPSiQ48m9DqxWrSkRkj0YQRwkWbxkKUcYwmWOh&usqp=CAU'
+    },
 ]};
 
 const usersReducer = (state = initialState, action) => {

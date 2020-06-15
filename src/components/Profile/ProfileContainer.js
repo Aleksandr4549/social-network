@@ -9,6 +9,7 @@ const ProfileContainer = props => {
         <Profile 
             posts={props.profile.posts}
             inputValue={props.profile.inputCurrentValue} 
+            avatar={props.profile.avatar}
             onChangeHandler={props.onChangePost} 
             addPostHandler={props.addPost}
         />

@@ -1,9 +1,12 @@
+import avatar from '../../assets/images/avatar_template.png';
+
 const ON_CHANGE_POST = 'ON_CHANGE_POST';
 const ADD_POST = 'ADD_POST';
 
 const initialState = {
     posts: [],
-    inputCurrentValue: ''
+    inputCurrentValue: '',
+    avatar: avatar
 }
 
 const profileReducer = (state = initialState, action) => {

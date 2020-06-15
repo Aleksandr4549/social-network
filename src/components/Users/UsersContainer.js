@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import Users from './Users';
 import { setUsers, toggleFollow } from '../../redux/reducers/users-reducer';
 
-const UsersContainer = () => {
+const UsersContainer = (props) => {
     return (
-        <Users />
+        <Users users={props.usersPage.users}/>
     );
 };
 

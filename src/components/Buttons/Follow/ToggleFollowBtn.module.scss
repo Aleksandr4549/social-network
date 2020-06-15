@@ -1,0 +1,14 @@
+.toggle__follow__btn {
+    padding: .1rem .2rem;
+    width: 5rem;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: .2s linear all;
+
+    &:hover {
+        color: #355C7D
+    }
+}
