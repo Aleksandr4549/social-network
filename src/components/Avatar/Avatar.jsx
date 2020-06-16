@@ -14,7 +14,7 @@ const Avatar = ({ url = avatar_template, avatarSize }) => {
 };
 
 Avatar.propTypes = {
-    url: PropTypes.string.isRequired,
+    url: PropTypes.string,
     avatarSize: PropTypes.string.isRequired
 }
 

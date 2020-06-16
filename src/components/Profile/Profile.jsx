@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import Posts from './Posts/Posts';
@@ -21,5 +22,13 @@ const Profile = ({posts, inputValue, avatar, onChangeHandler, addPostHandler}) =
         </div>
     );
 };
+
+Profile.propTypes = {
+    posts: PropTypes.arrayOf(PropTypes.object),
+    inputValue: PropTypes.string,
+    avatar: PropTypes.string,
+    onChangeHandler: PropTypes.func,
+    addPostHandler: PropTypes.func
+}
 
 export default Profile;

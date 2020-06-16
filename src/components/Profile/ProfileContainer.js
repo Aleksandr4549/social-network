@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import Profile from './Profile';
 import { onChangePost, addPost } from '../../redux/reducers/profile-reducer';
 
 const ProfileContainer = props => {
+    console.log(props)
     return (
         <Profile 
             posts={props.profile.posts}
@@ -22,4 +24,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {onChangePost, addPost})(ProfileContainer)
+export default withRouter(connect(mapStateToProps, {onChangePost, addPost})(ProfileContainer))

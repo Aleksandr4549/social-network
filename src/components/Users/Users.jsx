@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Avatar from '../Avatar/Avatar';
 import ToggleFollowBtn from '../Buttons/Follow/ToggleFollowBtn';
@@ -28,5 +29,10 @@ const Users = ({users, onClickHandler}) => {
         </div>
     );
 };
+
+Users.propTypes = {
+    users: PropTypes.arrayOf(PropTypes.object),
+    onClickHandler: PropTypes.func
+}
 
 export default Users;

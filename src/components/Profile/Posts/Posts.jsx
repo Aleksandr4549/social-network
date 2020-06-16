@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import InputPost from './InputPost/InputPost';
 import Post from './Post/Post';
@@ -16,5 +17,12 @@ const Posts = ({posts, inputValue, onChangeHandler, addPostHandler}) => {
         </div>
     );
 };
+
+Posts.propTypes = {
+    posts: PropTypes.arrayOf(PropTypes.object),
+    inputValue: PropTypes.string,
+    onChangeHandler: PropTypes.func,
+    addPostHandler: PropTypes.func
+}
 
 export default Posts;
