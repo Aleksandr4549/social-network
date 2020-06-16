@@ -1,3 +1,5 @@
+import usersAPI from '../../api/users-api';
+
 const SET_USERS = 'SET_USERS';
 const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW';
 
@@ -37,6 +39,7 @@ const usersReducer = (state = initialState, action) => {
 };
 
 export const setUsers = users => {
+    debugger
     return {
         type: SET_USERS,
         payload: users
@@ -49,5 +52,12 @@ export const toggleFollow = id => {
         payload: id
     }
 };
+
+export const getUsers = (currentPage, pageSize) => {
+    return async dispatch => {
+        const data = await usersAPI.getUsers(currentPage, pageSize);
+        dispatch(setUsers(data.data.items))
+    }
+}
 
 export default usersReducer;

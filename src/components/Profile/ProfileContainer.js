@@ -6,7 +6,6 @@ import Profile from './Profile';
 import { onChangePost, addPost } from '../../redux/reducers/profile-reducer';
 
 const ProfileContainer = props => {
-    console.log(props)
     return (
         <Profile 
             posts={props.profile.posts}

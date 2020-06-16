@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import Users from './Users';
-import { setUsers, toggleFollow } from '../../redux/reducers/users-reducer';
+import { setUsers, toggleFollow, getUsers } from '../../redux/reducers/users-reducer';
 
 const UsersContainer = (props) => {
     return (
@@ -16,4 +16,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps, {setUsers, toggleFollow})(UsersContainer);
+export default connect(mapStateToProps, {setUsers, toggleFollow, getUsers})(UsersContainer);

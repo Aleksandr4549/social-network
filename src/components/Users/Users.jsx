@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 
 import Avatar from '../Avatar/Avatar';
 import ToggleFollowBtn from '../Buttons/Follow/ToggleFollowBtn';
+import Pagination from '../Pagination/Pagination';
 import style from './Users.module.scss';
 
 const Users = ({users, onClickHandler}) => {
     return (
         <div>
+            <Pagination pageSize={10} countItems={440} />
             {users.map(user => (
                 <div key={user.id} className={style.user__container}>
                     <Avatar url={user.avatarUrl} avatarSize='small' />

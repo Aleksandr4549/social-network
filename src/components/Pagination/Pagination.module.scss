@@ -1,0 +1,25 @@
+.pagination__container {
+    display: flex;
+    margin: 0 auto;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 .5rem;
+    list-style: none;
+
+    & div {
+        display: inline-block;
+        margin: 2px;
+        padding: 5px;
+        color: #000;
+        text-decoration: none;
+        border: 1px solid #000;
+        cursor: pointer;
+
+        &:hover {
+            color: #355C7D;
+        }
+    }
+}
