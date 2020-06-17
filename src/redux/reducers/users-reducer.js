@@ -52,6 +52,7 @@ export const toggleFollow = id => {
 };
 
 export const changedCurrentPage = numberPage => {
+    console.log(numberPage)
     return {
         type: CHANGED_CURRENT_PAGE,
         payload: +numberPage

@@ -23,7 +23,11 @@
         transition: .2s linear all;
 
         &:hover {
-            color: #355C7D;
+            background-color: lighten(#355C7D, 50%);
         }
     }
+}
+
+.active {
+   background-color: #355C7D;
 }

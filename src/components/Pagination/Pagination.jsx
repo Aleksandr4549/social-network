@@ -28,14 +28,17 @@ class Pagination extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if(prevState.startBetweenPages !== this.state.startBetweenPages ) {
+            console.log(prevProps)
             this.setState({...this.state, pages: []})
             this.setPages()
+        }
+
+        if(prevProps.currentPage !== this.props.currentPage) {
+            this.setState(state => ({...state, currentPage: this.props.currentPage}))
         }
     }
 
     onPrevClickHandler = () => {
-        this.props.onClickHandler(this.state.startBetweenPages)
-
         this.setState(state => ({
             ...this.state, 
             startBetweenPages: state.startBetweenPages - this.props.betweenSize < 1 ? 
@@ -44,11 +47,12 @@ class Pagination extends React.Component {
                 this.props.betweenSize : state.endBetweenPages >= state.countPages ?
                 state.startBetweenPages - 1 : state.endBetweenPages - this.props.betweenSize
         }))
+
+        this.props.onClickHandler(this.state.startBetweenPages - this.props.betweenSize < 1 ?
+            1 : this.state.startBetweenPages - this.props.betweenSize)
     }
 
     onNextClickHandler = () => {
-        this.props.onClickHandler(this.state.startBetweenPages)
-
         this.setState(state => ({
             ...state, 
             startBetweenPages: state.startBetweenPages + this.props.betweenSize >= state.countPages ? 
@@ -57,6 +61,10 @@ class Pagination extends React.Component {
             endBetweenPages: state.endBetweenPages + this.props.betweenSize >= state.countPages ? 
                 state.countPages : state.endBetweenPages + this.props.betweenSize
         }))
+
+        this.props.onClickHandler(this.state.startBetweenPages + this.props.betweenSize >= this.state.countPages ?
+            Math.ceil((this.state.countPages - this.props.betweenSize) / 10) * 10 :
+            this.state.startBetweenPages + this.props.betweenSize)
     }
 
     render() {
@@ -69,6 +77,7 @@ class Pagination extends React.Component {
                     {this.state.pages.map(page => (
                         <div 
                             key={page} 
+                            className={page === this.state.currentPage ? style.active : ''}
                             onClick={(e) => this.props.onClickHandler(e.target.innerText)}>{page}
                         </div>
                     ))}

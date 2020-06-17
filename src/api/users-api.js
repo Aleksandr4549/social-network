@@ -1,4 +1,3 @@
-import axios from 'axios';
 import insctance from './api-instance';
 
 const usersAPI = {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Avatar from '../Avatar/Avatar';
-import ToggleFollowBtn from '../Buttons/Follow/ToggleFollowBtn';
+import ToggleFollowBtn from '../Buttons/ToggleFollowBtn/ToggleFollowBtnFollowBtn';
 import Pagination from '../Pagination/Pagination';
 import style from './Users.module.scss';
 
