@@ -2,17 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Avatar from '../Avatar/Avatar';
-import ToggleFollowBtn from '../Buttons/ToggleFollowBtn/ToggleFollowBtnFollowBtn';
+import ToggleFollowBtn from '../Buttons/ToggleFollowBtn/ToggleFollowBtn';
 import Pagination from '../Pagination/Pagination';
 import style from './Users.module.scss';
 
 const Users = ({
     users, 
-    onClickHandler, 
     changedCurrentPage, 
     pageSize, 
     currentPage,
-    usersTotalCount}) => {
+    usersTotalCount,
+    followClickHandler,
+    unfollowClickHandler}) => {
     return (
         <div>
             {usersTotalCount && 
@@ -36,8 +37,8 @@ const Users = ({
                         </div>
                         <div>{user.status}</div>
                         <ToggleFollowBtn 
-                            text={user.isFollow ? 'unfollow' : 'follow'}
-                            onClickHandler={onClickHandler} 
+                            text={user.followed ? 'unfollow' : 'follow'}
+                            onClickHandler={user.followed ? unfollowClickHandler : followClickHandler} 
                             id={user.id}
                         />
                     </div>

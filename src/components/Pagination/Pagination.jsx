@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import NavigationBtn from '../Buttons/Navigation/NavigationBtn';
+import NavigationBtn from '../Buttons/NavigationBtn/ToPrevToNextBtn/ToPrevToNextBtn';
 import style from './Pagination.module.scss';
 
 class Pagination extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import style from './Send.module.scss';
+import style from './SendBtn.module.scss';
 
 const Send = ({ onClickHandler }) => {
     return <button className={style.send__btn} onClick={onClickHandler}>Send</button>

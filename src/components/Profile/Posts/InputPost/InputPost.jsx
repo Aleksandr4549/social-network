@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SendButton from '../../../Buttons/Send/Send';
+import SendBtn from '../../../Buttons/SendBtn/SendBtn';
 import style from './InputPost.module.scss';
 
 const InputPost = ({ value, onChangeHandler, addPostHandler }) => {
@@ -12,7 +12,7 @@ const InputPost = ({ value, onChangeHandler, addPostHandler }) => {
                 value={value}
                 onChange={(e) => onChangeHandler(e.target.value)}
             />
-            <SendButton onClickHandler={addPostHandler} />
+            <SendBtn onClickHandler={addPostHandler} />
         </div>
     );
 };

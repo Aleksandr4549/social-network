@@ -24,7 +24,7 @@ const Profile = ({posts, inputValue, avatar, onChangeHandler, addPostHandler}) =
 };
 
 Profile.propTypes = {
-    posts: PropTypes.arrayOf(PropTypes.object),
+    posts: PropTypes.array,
     inputValue: PropTypes.string,
     avatar: PropTypes.string,
     onChangeHandler: PropTypes.func,

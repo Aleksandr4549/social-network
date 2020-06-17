@@ -19,7 +19,7 @@ const Posts = ({posts, inputValue, onChangeHandler, addPostHandler}) => {
 };
 
 Posts.propTypes = {
-    posts: PropTypes.arrayOf(PropTypes.object),
+    posts: PropTypes.arrayOf(PropTypes.string),
     inputValue: PropTypes.string,
     onChangeHandler: PropTypes.func,
     addPostHandler: PropTypes.func
