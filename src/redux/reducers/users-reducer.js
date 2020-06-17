@@ -84,10 +84,8 @@ export const changedCurrentPage = numberPage => {
 
 export const getUsersTotalCount = () => {
     return async dispatch => {
-        dispatch(toggleIsFetching())
         const data = await usersAPI.getTotalCount();
         dispatch(setUsersTotalCount(data.data.totalCount))
-        dispatch(toggleIsFetching())
     }
 }
 

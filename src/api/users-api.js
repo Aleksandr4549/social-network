@@ -1,4 +1,4 @@
-import insctance from './api-instance';
+import insctance from './axiosInstance';
 
 const usersAPI = {
     getUsers(currentPage = 1, pageSize = 10) {

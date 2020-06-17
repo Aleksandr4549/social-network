@@ -10,8 +10,8 @@ class Pagination extends React.Component {
         this.state = {
             pages: [],
             countPages: Math.ceil(this.props.countItems / this.props.pageSize),
-            startBetweenPages: 1,
-            endBetweenPages: this.props.betweenSize,
+            startBetweenPages: Math.floor(this.props.currentPage / 10) * 10 + 1,
+            endBetweenPages: Math.floor(this.props.currentPage / 10) * 10 + this.props.betweenSize,
             currentPage: this.props.currentPage
         }
     }

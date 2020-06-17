@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 
 import profileReducer from './reducers/profile-reducer';
 import usersReducer from './reducers/users-reducer';
+import authReducer from './reducers/auth-reducer';
 
 const rootReducer = combineReducers({
     profile: profileReducer,
-    usersPage: usersReducer
+    usersPage: usersReducer,
+    auth: authReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
