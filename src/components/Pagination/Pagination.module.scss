@@ -13,10 +13,14 @@
         display: inline-block;
         margin: 2px;
         padding: 5px;
+        width: 2rem;
+        text-align: center;
         color: #000;
         text-decoration: none;
         border: 1px solid #000;
+        border-radius: 4px;
         cursor: pointer;
+        transition: .2s linear all;
 
         &:hover {
             color: #355C7D;

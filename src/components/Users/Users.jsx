@@ -6,10 +6,25 @@ import ToggleFollowBtn from '../Buttons/Follow/ToggleFollowBtn';
 import Pagination from '../Pagination/Pagination';
 import style from './Users.module.scss';
 
-const Users = ({users, onClickHandler}) => {
+const Users = ({
+    users, 
+    onClickHandler, 
+    changedCurrentPage, 
+    pageSize, 
+    currentPage,
+    usersTotalCount}) => {
     return (
         <div>
-            <Pagination pageSize={10} countItems={440} />
+            {usersTotalCount && 
+                <Pagination 
+                    pageSize={pageSize} 
+                    countItems={usersTotalCount} 
+                    betweenSize={10}
+                    currentPage={currentPage}
+                    onClickHandler={changedCurrentPage} 
+                />
+            }
+
             {users.map(user => (
                 <div key={user.id} className={style.user__container}>
                     <Avatar url={user.avatarUrl} avatarSize='small' />

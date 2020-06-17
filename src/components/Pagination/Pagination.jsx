@@ -11,8 +11,8 @@ class Pagination extends React.Component {
             pages: [],
             countPages: Math.ceil(this.props.countItems / this.props.pageSize),
             startBetweenPages: 1,
-            endBetweenPages: 10,
-            activePage: 1
+            endBetweenPages: this.props.betweenSize,
+            currentPage: this.props.currentPage
         }
     }
 
@@ -27,27 +27,35 @@ class Pagination extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if(prevState.startBetweenPages !== this.state.startBetweenPages) {
+        if(prevState.startBetweenPages !== this.state.startBetweenPages ) {
             this.setState({...this.state, pages: []})
             this.setPages()
         }
     }
 
     onPrevClickHandler = () => {
+        this.props.onClickHandler(this.state.startBetweenPages)
+
         this.setState(state => ({
             ...this.state, 
-            startBetweenPages: state.startBetweenPages - 10 < 1 ? 1 : state.startBetweenPages - 10,
-            endBetweenPages: state.endBetweenPages - 10 <= 10 ? 10 : Math.ceil((state.endBetweenPages - 10) / 10) * 10
+            startBetweenPages: state.startBetweenPages - this.props.betweenSize < 1 ? 
+                1 : state.startBetweenPages - this.props.betweenSize,
+            endBetweenPages: state.endBetweenPages - this.props.betweenSize <= this.props.betweenSize ? 
+                this.props.betweenSize : state.endBetweenPages >= state.countPages ?
+                state.startBetweenPages - 1 : state.endBetweenPages - this.props.betweenSize
         }))
     }
 
     onNextClickHandler = () => {
+        this.props.onClickHandler(this.state.startBetweenPages)
+
         this.setState(state => ({
-            ...this.state, 
-            startBetweenPages: state.startBetweenPages + 10 >= state.countPages ? 
-                Math.ceil((state.countPages - 10) / 10) * 10 : state.startBetweenPages + 10,
-            endBetweenPages: state.endBetweenPages + 10 >= state.countPages ? 
-                state.countPages : state.endBetweenPages + 10
+            ...state, 
+            startBetweenPages: state.startBetweenPages + this.props.betweenSize >= state.countPages ? 
+                Math.ceil((state.countPages - this.props.betweenSize) / 10) * 10 : 
+                state.startBetweenPages + this.props.betweenSize,
+            endBetweenPages: state.endBetweenPages + this.props.betweenSize >= state.countPages ? 
+                state.countPages : state.endBetweenPages + this.props.betweenSize
         }))
     }
 
@@ -56,9 +64,16 @@ class Pagination extends React.Component {
             <div className={style.pagination__container}>
                 {this.state.startBetweenPages > 1 && 
                     <NavigationBtn text={'prev'} onClickHandler={this.onPrevClickHandler} />}
-                <ul className={style.list}>
-                    {this.state.pages.map(page => <div key={page}>{page}</div>)}
-                </ul>
+
+                <div className={style.list}>
+                    {this.state.pages.map(page => (
+                        <div 
+                            key={page} 
+                            onClick={(e) => this.props.onClickHandler(e.target.innerText)}>{page}
+                        </div>
+                    ))}
+                </div>
+
                 {this.state.endBetweenPages < this.state.countPages &&
                     <NavigationBtn text={'next'} onClickHandler={this.onNextClickHandler} />
                 }
@@ -70,7 +85,8 @@ class Pagination extends React.Component {
 Pagination.propTypes = {
     countItems: PropTypes.number.isRequired,
     pageSize: PropTypes.number.isRequired,
-    activePage: PropTypes.number
+    betweenSize: PropTypes.number.isRequired,
+    onClickHandler: PropTypes.func.isRequired
 }
 
 export default Pagination;
