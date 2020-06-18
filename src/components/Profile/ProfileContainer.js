@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import Profile from './Profile';
 import { onChangePost, addPost } from '../../redux/reducers/profile-reducer';
+import { withAuthRedirect } from '../../hoc/withAuth';
 
 const ProfileContainer = props => {
     return (
@@ -23,4 +24,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, {onChangePost, addPost})(ProfileContainer))
+export default withAuthRedirect(withRouter(connect(mapStateToProps, {onChangePost, addPost})(ProfileContainer)))
