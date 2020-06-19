@@ -50,12 +50,6 @@ export const addPost = () => {
     }
 };
 
-// export const selectUserProfile = (id) => {
-//     return {
-//         type: ADD_POST,
-//     }
-// };
-
 const setUserProfile = userProfile => {
     return {
         type: SET_USER_PROFILE,

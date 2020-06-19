@@ -5,7 +5,7 @@ const loginAPI = {
         return instance.post(`auth/login?email=${email}&password=${password}&rememberMe=${rememberMe}`)
     },
     logout() {
-        return instance.delete()
+        return instance.delete('auth/login')
     }  
 };
 

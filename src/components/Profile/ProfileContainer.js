@@ -33,6 +33,7 @@ const ProfileContainer = props => {
 const mapStateToProps = state => {
     return {
         profile: state.profile,
+        auth: state.auth
     }
 }
 

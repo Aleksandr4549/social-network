@@ -2,6 +2,7 @@ import authAPI from '../../api/auth-api';
 import loginAPI from '../../api/login-api';
 
 const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
+const LOGOUT = 'LOGOUT';
 
 const initialState = {
     id: null,
@@ -20,6 +21,8 @@ const authReducer = (state = initialState, action) => {
                 login: action.login,
                 isAuth: true
             }
+        case LOGOUT:
+            return initialState
         default:
             return state
     }
@@ -34,7 +37,9 @@ const setAuthUserData = (id, email, login) => {
     }
 }
 
-export const getAuthUserData = () => {
+const cleanAuthUserData = () => ({type: LOGOUT})
+
+export const getAuthData = () => {
     return async dispatch => {
         const authdata = await authAPI.me()
         if(authdata.data.resultCode === 0) {
@@ -46,14 +51,14 @@ export const getAuthUserData = () => {
 export const login = ({email, password, rememberMe}) => {
     return async dispath => {
         const data = await loginAPI.login(email, password, rememberMe)
-        console.log(data)
+        dispath(getAuthData())
     }
 }
 
 export const logout = () => {
     return async dispath => {
         const data = await loginAPI.logout()
-        console.log(data)
+        dispath(cleanAuthUserData())
     }
 }
 

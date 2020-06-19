@@ -8,12 +8,12 @@ import Messages from './components/Messages/Messages';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import Login from './components/Login/Login';
-import { getAuthUserData } from './redux/reducers/auth-reducer';
+import { getAuthData } from './redux/reducers/auth-reducer';
 import style from './App.module.scss';
 
 const App = props => {
     useEffect(() => {
-        props.getAuthUserData()
+        props.getAuthData()
     }, [props.state.auth.isAuth])
 
     return (
@@ -29,4 +29,4 @@ const App = props => {
 }
 
 
-export default connect(null, {getAuthUserData})(App);
+export default connect(null, {getAuthData})(App);
