@@ -1,4 +1,5 @@
 import authAPI from '../../api/auth-api';
+import loginAPI from '../../api/login-api';
 
 const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
 
@@ -41,5 +42,20 @@ export const getAuthUserData = () => {
         }
     }
 }
+
+export const login = ({email, password, rememberMe}) => {
+    return async dispath => {
+        const data = await loginAPI.login(email, password, rememberMe)
+        console.log(data)
+    }
+}
+
+export const logout = () => {
+    return async dispath => {
+        const data = await loginAPI.logout()
+        console.log(data)
+    }
+}
+
 
 export default authReducer;

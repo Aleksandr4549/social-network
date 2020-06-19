@@ -20,7 +20,7 @@ const App = props => {
         <div className={style.app}>
             <HeaderContainer />
             <Navbar />
-            <Route exact path={'/'} render={() => <ProfileContainer />} />
+            <Route exact path={'/profile:userId?'} render={() => <ProfileContainer />} />
             <Route exact path={'/messages'} render={() => <Messages />} />
             <Route exact path={'/users'} render={() => <UsersContainer />} />
             <Route exact path={'/login'} render={() => <Login />} />

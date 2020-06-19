@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Avatar from '../Avatar/Avatar';
 import ToggleFollowBtn from '../Buttons/ToggleFollowBtn/ToggleFollowBtn';
@@ -28,14 +29,20 @@ const Users = ({
 
             {users.map(user => (
                 <div key={user.id} className={style.user__container}>
-                    <Avatar url={user.avatarUrl} avatarSize='small' />
+                    <Link to={`profile\\${user.id}`} className={style.link}>
+                        <Avatar url={user.avatarUrl} avatarSize='small' />
+                    </Link>
+
                     <div className={style.user__info}>
                         <div>{user.name}</div>
+
                         <div className={style.location}>
                             <span>{user.country}</span>
                             <span>{user.city}</span>
                         </div>
+
                         <div>{user.status}</div>
+
                         <ToggleFollowBtn 
                             text={user.followed ? 'unfollow' : 'follow'}
                             onClickHandler={user.followed ? unfollowClickHandler : followClickHandler} 

@@ -28,7 +28,6 @@ class Pagination extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if(prevState.startBetweenPages !== this.state.startBetweenPages ) {
-            console.log(prevProps)
             this.setState({...this.state, pages: []})
             this.setPages()
         }
