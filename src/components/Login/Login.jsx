@@ -8,7 +8,7 @@ import style from './Login.module.scss';
 
 const Login = props => {
     if(props.auth.isAuth) return <Redirect to={'/profile'} />
-    
+
     return (
         <div className={style.login__container}>
             <h3>Login</h3>

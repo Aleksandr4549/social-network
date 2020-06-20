@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -8,25 +8,33 @@ import Messages from './components/Messages/Messages';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import Login from './components/Login/Login';
-import { getAuthData } from './redux/reducers/auth-reducer';
+import Preloader from './components/Preloader/Preloader';
+import { initializeApp } from './redux/reducers/app-reducer';
 import style from './App.module.scss';
 
-const App = props => {
-    useEffect(() => {
-        props.getAuthData()
-    }, [props.state.auth.isAuth])
+class App extends React.Component {
+    componentDidMount() {
+        this.props.initializeApp()
+    }
 
-    return (
-        <div className={style.app}>
-            <HeaderContainer />
-            <Navbar />
-            <Route exact path={'/profile:userId?'} render={() => <ProfileContainer />} />
-            <Route exact path={'/messages'} render={() => <Messages />} />
-            <Route exact path={'/users'} render={() => <UsersContainer />} />
-            <Route exact path={'/login'} render={() => <Login />} />
-        </div>
-    )
+    render() {
+        if(!this.props.initialized) return <Preloader />
+
+        return (
+            <div className={style.app}>
+                <HeaderContainer />
+                <Navbar />
+                <Route exact path={'/profile:userId?'} render={() => <ProfileContainer />} />
+                <Route exact path={'/messages'} render={() => <Messages />} />
+                <Route exact path={'/users'} render={() => <UsersContainer />} />
+                <Route exact path={'/login'} render={() => <Login />} />
+            </div>
+        )
+    }
 }
 
+const mapStateToProps = state => ({
+    initialized: state.app.initialized
+})
 
-export default connect(null, {getAuthData})(App);
+export default connect(mapStateToProps, {initializeApp})(App);

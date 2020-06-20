@@ -9,12 +9,11 @@ import { withAuthRedirect } from '../../hoc/withAuth';
 import avatar from '../../assets/images/avatar_template.png';
 
 const ProfileContainer = props => {
-    let userId = props.match.params.userId;
-
     useEffect(() => {
-        if(!userId) userId = 2
+        let userId = props.match.params.userId;
+        if(!userId) userId = props.auth.id
         props.getUserProfile(userId)
-    }, [props.profile.fullName])
+    }, [props.profile.currentUserId])
 
     if(!props.profile.userProfile) return <Preloader />
 

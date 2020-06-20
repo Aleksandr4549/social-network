@@ -1,7 +1,5 @@
 import React from 'react';
 
-import style from './Messages.module.scss';
-
 const Messages = () => {
     return (
         <div>Messages</div>

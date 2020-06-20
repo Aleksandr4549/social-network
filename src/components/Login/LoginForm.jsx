@@ -3,9 +3,9 @@ import { reduxForm } from 'redux-form';
 import { Field } from 'redux-form';
 
 import Input from '../CustomFormFields/Input/Input';
-import { maxLength, required } from '../../utils/validators/validators';
+import { required } from '../../utils/validators/validators';
 
-const maxLength10 = maxLength(10);
+import style from '../CustomFormFields/Input/Input.module.scss'
 
 const LoginForm = props => {
     return (
@@ -16,7 +16,7 @@ const LoginForm = props => {
                     placeholder="email" 
                     name='email' 
                     component={Input} 
-                    validate={[maxLength10, required]}
+                    validate={[required]}
                 />
             </div>
             <div>
@@ -25,12 +25,13 @@ const LoginForm = props => {
                     placeholder="password" 
                     name='password' 
                     component={Input} 
-                    validate={[maxLength10, required]}
+                    validate={[required]}
                 />
             </div>
             <div>
                 <Field type="checkbox" name='rememberMe' component='input' /> remember me
             </div>
+            {props.error && <div className={style.error}>{props.error}</div>}
             <button type="submit">Submit</button>
         </form>
     );

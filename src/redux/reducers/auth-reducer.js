@@ -1,3 +1,5 @@
+import { SubmissionError } from 'redux-form';
+
 import authAPI from '../../api/auth-api';
 import loginAPI from '../../api/login-api';
 
@@ -49,16 +51,21 @@ export const getAuthData = () => {
 }
 
 export const login = ({email, password, rememberMe}) => {
-    return async dispath => {
+    return async dispatch => {
         const data = await loginAPI.login(email, password, rememberMe)
-        dispath(getAuthData())
+        if(data.data.resultCode === 0) {
+            dispatch(getAuthData())
+        } else {
+            const message = data.data.messages.length > 0 ? data.data.messages[0] : "Some error";
+            throw new SubmissionError({ name: 'error form', _error: message })
+        }
     }
 }
 
 export const logout = () => {
-    return async dispath => {
-        const data = await loginAPI.logout()
-        dispath(cleanAuthUserData())
+    return async dispatch => {
+        loginAPI.logout()
+        dispatch(cleanAuthUserData())
     }
 }
 

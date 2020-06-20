@@ -27,7 +27,6 @@ const profileReducer = (state = initialState, action) => {
                 inputCurrentValue: ''
             }
         case SET_USER_PROFILE:
-            console.log(action.payload)
             return {
                 ...state,
                 userProfile: action.payload
