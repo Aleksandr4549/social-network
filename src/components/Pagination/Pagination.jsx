@@ -12,7 +12,9 @@ class Pagination extends React.Component {
             countPages: Math.ceil(this.props.countItems / this.props.pageSize),
             startBetweenPages: Math.floor(this.props.currentPage / 10) * 10 + 1,
             endBetweenPages: Math.floor(this.props.currentPage / 10) * 10 + this.props.betweenSize,
-            currentPage: this.props.currentPage
+            currentPage: this.props.currentPage,
+            valuePrevBtn: '<',
+            valueNextBtn: '>'
         }
     }
 
@@ -23,7 +25,10 @@ class Pagination extends React.Component {
     }
 
     componentDidMount() {
+        let windowWidth = document.documentElement.clientWidth
+        if(windowWidth <= 800) this.setState({...this.state, valuePrevBtn: '<', valueNextBtn: '>'})
         this.setPages()
+        console.log(windowWidth)
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -70,7 +75,7 @@ class Pagination extends React.Component {
         return (
             <div className={style.pagination__container}>
                 {this.state.startBetweenPages > 1 && 
-                    <NavigationBtn text={'prev'} onClickHandler={this.onPrevClickHandler} />}
+                    <NavigationBtn text={this.state.valuePrevBtn} onClickHandler={this.onPrevClickHandler} />}
 
                 <div className={style.list}>
                     {this.state.pages.map(page => (
@@ -83,7 +88,7 @@ class Pagination extends React.Component {
                 </div>
 
                 {this.state.endBetweenPages < this.state.countPages &&
-                    <NavigationBtn text={'next'} onClickHandler={this.onNextClickHandler} />
+                    <NavigationBtn text={this.state.valueNextBtn} onClickHandler={this.onNextClickHandler} />
                 }
             </div>
         );

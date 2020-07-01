@@ -13,7 +13,7 @@ const ProfileContainer = props => {
         let userId = props.match.params.userId;
         if(!userId) userId = props.auth.id
         props.getUserProfile(userId)
-    }, [props.profile.currentUserId])
+    }, [])
 
     if(!props.profile.userProfile) return <Preloader />
 

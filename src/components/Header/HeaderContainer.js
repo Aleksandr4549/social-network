@@ -5,8 +5,8 @@ import Header from './Header';
 import { logout } from '../../redux/reducers/auth-reducer';
 
 const HeaderContainer = props => {
-    const {isAuth, login} = props.auth
-    return <Header isAuth={isAuth} login={login} logoutHandler={props.logout} />
+    const {isAuth} = props.auth
+    return <Header isAuth={isAuth} logoutHandler={props.logout} />
 };
 
 const mapStateToProps = state => ({auth: state.auth})

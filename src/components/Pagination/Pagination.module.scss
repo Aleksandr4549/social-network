@@ -1,3 +1,5 @@
+$bg-color: #355C7D;
+
 .pagination__container {
     display: flex;
     margin: 0 auto;
@@ -23,11 +25,22 @@
         transition: .2s linear all;
 
         &:hover {
-            background-color: lighten(#355C7D, 50%);
+            background-color: lighten($bg-color, 50%);
+        }
+
+        @media screen and (max-width: 800px){
+            padding: 1px;
+            width: 1.2rem;
+            font-size: .8rem;
+        }
+
+        @media screen and (max-width: 600px){
+            margin: 1px;
+            border: none;
         }
     }
 }
 
 .active {
-   background-color: #355C7D;
+   background-color: $bg-color;
 }

@@ -57,5 +57,9 @@ $color: $color-1, $color-2, $color-3, $color-4, $color-5;
       transition: 0.5s all ease;
       transform: scale(1);
     }
+
+    @media screen and (max-width: 600px){
+      margin: 5px;
+    }
   }
 }

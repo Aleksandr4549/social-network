@@ -45,4 +45,9 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps, {getUsersTotalCount, getUsers, changedCurrentPage, follow, unfollow})(UsersContainer);
+export default connect(mapStateToProps, {
+    getUsersTotalCount, 
+    getUsers, 
+    changedCurrentPage, 
+    follow, 
+    unfollow})(UsersContainer);

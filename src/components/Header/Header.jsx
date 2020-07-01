@@ -3,7 +3,7 @@ import React from 'react';
 import lb from '../../assets/images/logo.png';
 import style from './Header.module.scss';
 
-const Header = ({isAuth, login, logoutHandler}) => {
+const Header = ({isAuth, logoutHandler}) => {
   return (
     <header className={style.header}>
         <div className={style.header__logo__container}>
@@ -11,7 +11,6 @@ const Header = ({isAuth, login, logoutHandler}) => {
         </div>
         {isAuth && 
           <div className={style.header__title}>
-            <span>{login}</span>
             <button onClick={logoutHandler}>logout</button>
           </div>
         }
